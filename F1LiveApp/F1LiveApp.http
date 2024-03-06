@@ -1,0 +1,6 @@
+@F1LiveApp_HostAddress = http://localhost:5041
+
+GET {{F1LiveApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
