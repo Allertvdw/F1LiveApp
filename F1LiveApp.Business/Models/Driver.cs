@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,17 +9,18 @@ namespace F1LiveApp.Business.Models
 {
 	public class Driver
 	{
-        public string BroadcastName { get; set; }
-        public string CountryCode { get; set; }
-        public int DriverNumber { get; set; }
-        public string FirstName { get; set; }
-        public string FullName { get; set; }
-        public string HeadshotUrl { get; set; }
-        public string LastName { get; set; }
-        public int MeetingKey { get; set; }
-        public string NameAcronym { get; set; }
-        public int SessionKey { get; set; }
-        public string TeamColour { get; set; }
-        public string TeamName { get; set; }
+        [Key]
+		public int Driver_Number { get; set; }
+		public string Broadcast_Name { get; set; }
+        public string Country_Code { get; set; }
+        public string First_Name { get; set; }
+        public string Full_Name { get; set; }
+        public string Headshot_Url { get; set; }
+        public string Last_Name { get; set; }
+        public int Meeting_Key { get; set; }
+        public string Name_Acronym { get; set; }
+        public int Session_Key { get; set; }
+        public string Team_Colour { get; set; }
+        public string Team_Name { get; set; }
     }
 }
