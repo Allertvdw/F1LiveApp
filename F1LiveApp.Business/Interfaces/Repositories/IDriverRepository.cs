@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace F1LiveApp.Data
+namespace F1LiveApp.Business.Interfaces.Repositories
 {
-	public class DataContext
+	public interface IDriverRepository
 	{
 	}
 }

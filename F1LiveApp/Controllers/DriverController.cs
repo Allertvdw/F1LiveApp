@@ -10,10 +10,13 @@ namespace F1LiveApp.API.Controllers
 	[ApiController]
 	public class DriverController : ControllerBase
 	{
+		private readonly IDriverService _driverService;
 		private readonly HttpClient _httpClient;
 
-		public DriverController()
+		public DriverController(IDriverService driverService)
 		{
+			_driverService = driverService;
+
 			_httpClient = new HttpClient
 			{
 				BaseAddress = new Uri("https://api.openf1.org/v1/")
