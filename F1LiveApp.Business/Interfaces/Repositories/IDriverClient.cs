@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace F1LiveApp.Business.Interfaces.Services
+namespace F1LiveApp.Business.Interfaces.Repositories
 {
-	public interface IDriverService
+	public interface IDriverClient
 	{
 		Task<List<Driver>> GetAllDrivers(int sessionKey);
 	}

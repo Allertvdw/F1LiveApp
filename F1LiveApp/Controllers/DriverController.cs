@@ -11,42 +11,17 @@ namespace F1LiveApp.API.Controllers
 	public class DriverController : ControllerBase
 	{
 		private readonly IDriverService _driverService;
-		private readonly HttpClient _httpClient;
 
 		public DriverController(IDriverService driverService)
 		{
 			_driverService = driverService;
-
-			_httpClient = new HttpClient
-			{
-				BaseAddress = new Uri("https://api.openf1.org/v1/")
-			};
 		}
 
 		[HttpGet]
 		public async Task<IActionResult> GetAllDrivers(int sessionKey)
 		{
-			try
-			{
-				List<Driver> drivers = [];
-				HttpResponseMessage response = await _httpClient.GetAsync(_httpClient.BaseAddress + $"drivers?session_key={sessionKey}");
-
-				if (response.IsSuccessStatusCode)
-				{
-					string json = await response.Content.ReadAsStringAsync();
-					drivers = JsonConvert.DeserializeObject<List<Driver>>(json);
-
-					return Ok(drivers);
-				}
-				else
-				{
-					return StatusCode((int)response.StatusCode, "Failed to retrieve drivers from the API.");
-				}
-			}
-			catch (Exception ex)
-			{
-				return StatusCode(500, $"An error occurred while retrieving drivers: {ex.Message}");
-			}
+			List<Driver> drivers = await _driverService.GetAllDrivers(sessionKey);
+			return Ok(drivers);
 		}
 	}
 }

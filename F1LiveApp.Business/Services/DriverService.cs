@@ -1,5 +1,6 @@
 ﻿using F1LiveApp.Business.Interfaces.Repositories;
 using F1LiveApp.Business.Interfaces.Services;
+using F1LiveApp.Business.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,16 +12,16 @@ namespace F1LiveApp.Business.Services
 {
 	public class DriverService : IDriverService
 	{
-		private readonly IDriverRepository _driverRepository;
+		private readonly IDriverClient _driverClient;
 
-		public DriverService(IDriverRepository driverRepository)
+		public DriverService(IDriverClient driverClient)
 		{
-			_driverRepository = driverRepository;
+			_driverClient = driverClient;
 		}
 
-		public Task<IActionResult> GetAllDrivers(int sessionKey)
+		public async Task<List<Driver>> GetAllDrivers(int sessionKey)
 		{
-			throw new NotImplementedException();
+			return await _driverClient.GetAllDrivers(sessionKey);
 		}
 	}
 }
