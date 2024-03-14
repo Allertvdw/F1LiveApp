@@ -4,6 +4,7 @@ using F1LiveApp.Business.Services;
 using F1LiveApp.Data.Data;
 using F1LiveApp.Data.Repositories;
 using Microsoft.EntityFrameworkCore;
+using OpenF1Client;
 using Pomelo.EntityFrameworkCore.MySql.Internal;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,7 @@ builder.Services.AddScoped<DataContext>();
 
 builder.Services.AddScoped<IDriverService, DriverService>();
 builder.Services.AddScoped<IDriverRepository, DriverRepository>();
+builder.Services.AddScoped<IDriverClient, DriverClient>();
 
 builder.Services.AddControllers();
 

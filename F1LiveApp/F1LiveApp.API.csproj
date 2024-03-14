@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\F1LiveApp.Data\F1LiveApp.Data.csproj" />
+    <ProjectReference Include="..\OpenF1Client\OpenF1Client.csproj" />
   </ItemGroup>
 
 </Project>
