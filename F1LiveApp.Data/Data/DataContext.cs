@@ -18,5 +18,25 @@ namespace F1LiveApp.Data.Data
         public DbSet<Driver> Drivers { get; set; }
         public DbSet<Meeting> Meetings { get; set; }
         public DbSet<Session> Sessions { get; set; }
-    }
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			base.OnModelCreating(modelBuilder);
+
+			modelBuilder.Entity<Session>()
+				.HasOne(s => s.Meeting)
+				.WithMany()
+				.HasForeignKey(s => s.Meeting_Key);
+
+			modelBuilder.Entity<Driver>()
+				.HasOne(d => d.Session)
+				.WithMany()
+				.HasForeignKey(d => d.Session_Key);
+
+			modelBuilder.Entity<Driver>()
+				.HasOne(d => d.Meeting)
+				.WithMany()
+				.HasForeignKey(d => d.Meeting_Key);
+		}
+	}
 }

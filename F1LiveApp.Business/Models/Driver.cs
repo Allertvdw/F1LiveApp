@@ -18,8 +18,10 @@ namespace F1LiveApp.Business.Models
         public string Headshot_Url { get; set; }
         public string Last_Name { get; set; }
         public int Meeting_Key { get; set; }
+        public Meeting Meeting { get; set; }
         public string Name_Acronym { get; set; }
         public int Session_Key { get; set; }
+        public Session Session { get; set; }
         public string Team_Colour { get; set; }
         public string Team_Name { get; set; }
     }
